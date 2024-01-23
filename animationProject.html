@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Beginning Animation</title>
+    <!-- Boostrap Include -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- jQuery Include -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        #cloud {
+            width: 200px;
+            position: absolute;
+            left: 200px;
+            top: 100px;
+        }
+        #sun {
+            width: 150px;
+            position: absolute;
+            left: 400px;
+            top: 0px;
+        }
+        #rain {
+            width: 100px;
+            position: absolute;
+            left: 250px;
+            top: 200px;
+        }
+        #children {
+            width: 200px;
+            position: absolute;
+            left: 0px;
+            top: 300px;
+        }
+        #yayText{
+            font-size: 50px;
+            font-weight: bold;
+            color: green;
+            position: absolute;
+            left: 400px;
+            top: 200px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="row">
+        <div class="col-12">
+            <img id="rain" src="img/raindrop.png" alt="rain">
+            <img id="cloud" src="img/cloud.png" alt="cloud">
+            <img id="sun" src="img/sun.png" alt="sun" style="display: none">
+            <img id="children" src="img/children.png" alt="children" style="display: none">
+            <h1>Rain, Rain Go Away!</h1>
+            <div>Click the cloud to make it rain! (Click about 4 times)</div>
+            <div>Click the rain to make it go away!</div>
+            <div id="yayText">Yay!</div>
+
+        </div>
+    </div>
+</div>
+<!-- Bootstrap Include -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+
+        $("#cloud").click(function(){
+            $("#rain").animate({
+                top: "+=20px",
+            })
+
+        });
+        $("#rain").click(function(){
+            $("#sun").show();
+            $("#rain").hide();
+            $("#children").show(500);
+            $("#children").animate({
+                left: "+=200px",
+            })
+            $("#yayText").show(1000);
+        });
+    });
+
+</script>
+</body>
+</html>
