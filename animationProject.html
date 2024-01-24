@@ -9,6 +9,9 @@
     <!-- jQuery Include -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <style>
+        #background-color {
+            background-color: lightgrey;
+        }
         #cloud {
             width: 200px;
             position: absolute;
@@ -18,8 +21,9 @@
         #sun {
             width: 150px;
             position: absolute;
-            left: 100px;
-            top: 100px;
+            display:none;
+            top: 0px;
+            left: 0px;
         }
         #rain {
             width: 100px;
@@ -32,6 +36,7 @@
             position: absolute;
             left: 0px;
             top: 300px;
+            display: none;
         }
         #yayText{
             font-size: 50px;
@@ -44,15 +49,15 @@
         }
     </style>
 </head>
-<body>
+<body id="background-color">
 <div class="container">
 
     <div class="row">
         <div class="col-12">
             <img id="rain" src="img/raindrop.png" alt="rain">
             <img id="cloud" src="img/cloud.png" alt="cloud">
-            <img id="sun" src="img/sun.png" alt="sun" style="display: none">
-            <img id="children" src="img/children.png" alt="children" style="display: none">
+            <img id="sun" src="img/sun.png" alt="sun">
+            <img id="children" src="img/children.png" alt="children">
             <h1>Rain, Rain Go Away!</h1>
             <div>Click the cloud to make it rain! (Click about 4 times)</div>
             <div>Click the rain to make it go away!</div>
@@ -73,13 +78,18 @@
         });
         // This function makes the rain drop disappear and the sun appear. The children will come out and play.
         $("#rain").click(function(){
+            $("#background-color").css("background-color", "deepskyblue");
             $("#sun").show();
+            $("#sun").animate({
+                left: "+=100px",
+                top: "+=100px",
+            });
             $("#rain").hide();
             $("#cloud").hide();
             $("#children").show(500);
             $("#children").animate({
                 left: "+=200px",
-            })
+            });
             $("#yayText").show(1000);
         });
     });
