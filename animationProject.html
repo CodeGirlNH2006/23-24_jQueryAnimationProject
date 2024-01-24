@@ -41,7 +41,7 @@
         #yayText{
             font-size: 50px;
             font-weight: bold;
-            color: green;
+            color: white;
             position: absolute;
             left: 400px;
             top: 200px;
@@ -78,18 +78,23 @@
         });
         // This function makes the rain drop disappear and the sun appear. The children will come out and play.
         $("#rain").click(function(){
+            // Changes the background color from grey to blue
             $("#background-color").css("background-color", "deepskyblue");
+            // Sun appears and moves right and down 100px
             $("#sun").show();
             $("#sun").animate({
                 left: "+=100px",
                 top: "+=100px",
             });
+            // Both rain and cloud disappear
             $("#rain").hide();
             $("#cloud").hide();
+            // Children appear and move right 200px
             $("#children").show(500);
             $("#children").animate({
                 left: "+=200px",
             });
+            // The word Yay appears
             $("#yayText").show(1000);
         });
     });
