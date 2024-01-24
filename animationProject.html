@@ -18,8 +18,8 @@
         #sun {
             width: 150px;
             position: absolute;
-            left: 400px;
-            top: 0px;
+            left: 100px;
+            top: 100px;
         }
         #rain {
             width: 100px;
@@ -28,7 +28,7 @@
             top: 200px;
         }
         #children {
-            width: 200px;
+            width: 250px;
             position: absolute;
             left: 0px;
             top: 300px;
@@ -75,6 +75,7 @@
         $("#rain").click(function(){
             $("#sun").show();
             $("#rain").hide();
+            $("#cloud").hide();
             $("#children").show(500);
             $("#children").animate({
                 left: "+=200px",
